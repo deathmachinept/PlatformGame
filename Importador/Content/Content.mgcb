@@ -229,12 +229,6 @@
 /processorParam:TextureFormat=Color
 /build:18.png
 
-#begin burp.mp3
-/importer:Mp3Importer
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:burp.mp3
-
 #begin player.png
 /importer:TextureImporter
 /processor:TextureProcessor
