@@ -30,8 +30,7 @@ namespace Importador
             // estamos a pressupor que o tamanho da imagem
             // nunca muda, portanto, é só atualizar as
             // coordenadas da bounding box.
-            bbox.Location = 
-                (position * Game1.unitSize).ToPoint();
+            bbox.Location = (pos * Game1.unitSize).ToPoint();
         }
 
         public void Draw(SpriteBatch spriteBatch)

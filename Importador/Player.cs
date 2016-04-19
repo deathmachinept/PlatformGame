@@ -1,10 +1,14 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
+using System;
 
 namespace Importador
 {
     class Player : Sprite
     {
+        float accelerationY = .5f;
+        float velocityY = 0f;
+            
         public Player(ContentManager content,
             string imagename, Vector2 position) :
             base(content, imagename, position)
@@ -14,9 +18,11 @@ namespace Importador
 
         public void Update(GameTime gameTime)
         {
-            Vector2 target = position;
-            target.Y -= 23f *
+            // Gravidade
+            velocityY += accelerationY *
                 (float)gameTime.ElapsedGameTime.TotalSeconds;
+            Vector2 target = position;
+            target.Y -= velocityY;
             updateBoundingBox(target);
 
             Rectangle? collision = collides(bbox);
@@ -28,7 +34,9 @@ namespace Importador
             else
             {
                 // colidimos!!!
-                
+                position.Y =
+                    (collision.Value.Top + bbox.Height) / Game1.unitSize;
+                velocityY = 0f;
             }
 
 
